@@ -1,0 +1,35 @@
+1. Create path ~/f1/f2/f3/f4/f5/f6; Create and fill in text file in f1 folder; Copy it to f6 folder; Navigate to Home folder; Find copied file and remove it
+mkdir -p  f1/f2/f3/f4/f5/f6
+cd f1
+touch file.txt
+vim file.txt
+i
+some text
+esc :wq
+cd /home/ubuntu/f1/
+cp file.txt /home/ubuntu/f1/f2/f3/f4/f5/f6/
+cd
+find ./f1/f2/f3/f4/f5/f6/ -iname "file.txt"
+cd /home/ubuntu/f1/f2/f3/f4/f5/f6/
+rm file.txt
+2. Redirect errors only output into separate file
+cd /home/ubuntu/f1/
+ls file.t 2> ls-error.log
+3. Redirect error and standart outputs into separate file
+ls file.txt file.t >ls-error1.log 2>&1
+4. Create file, change owner to root. Add permissions to execute file
+cd f1
+touch new_file
+sudo chown root new_file
+sudo chmod +x new_file
+5. make cmd2 executes only if cmd1 fails
+cmd1 || cmd2
+6. make cmd2 executes only if cmd1 successful
+cmd1 && cmd2
+7. Create and execute sh file that prints current folder. NOTE: Do not use any text redactor
+touxh sh
+cat > sh
+ls
+Ñtrl+D
+chmod +x sh
+./sh
